@@ -1,0 +1,458 @@
+#header {
+    background: none repeat scroll 0 0 #CF0101;
+    height: 60px;
+}
+
+#header > div {
+    height: 60px;
+}
+
+#header #pageLogo {
+    margin-left: -35px;
+    width: 200px;
+}
+
+#header #pageLogo .logo {
+    height: 60px;
+    width: 97px;
+    float: left;
+    border-width: 0 1px 0 1px;
+    border-color: #323232;
+   /* border-style: solid;*/
+    overflow: hidden;
+    background: url(../images/logo.png) 0 0 no-repeat transparent;
+    display: block;
+    text-indent: -9999em;
+    margin: 0;
+}
+
+#header #pageLogo .logo:hover {
+    background-position: 0 -60px;
+}
+
+#header #pageLogo .soha {
+    background: url("images/logo.png") center no-repeat;
+    width: 168px;
+    display: block;
+    height: 60px;
+    margin-left: 101px;
+}
+
+.icon-app {
+    width: 20px;
+    height: 20px;
+    background: url(images/icon/category_sprite.png) transparent;
+    background-size: 171px 171px;
+    /*display: block;*/
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-top: -2px;
+}
+
+.icon-app.tin-tuc {
+    background-position: -83px -42px;
+}
+
+icon-app.hoc-tap {
+    background-position: -20.5px -20.5px;
+}
+
+.icon-app.am-nhac {
+    background-position: 0 0;
+}
+
+.icon-app.giai-tri {
+    background-position: -21px 0px;
+}
+
+.icon-app.ban-sung {
+    background-position: -41.5px 0px;
+}
+
+.icon-app.casino {
+    background-position: -62px 0;
+}
+
+.icon-app.chien-thuat {
+    background-position: -83px 0;
+}
+
+.icon-app.dan-gian {
+    background-position: -103px 0px;
+}
+
+.icon-app.food-amp-drink {
+    background-position: -186px 0px
+}
+
+.icon-app.food-amp-drink {
+    background-position: -295.5px 0px;
+}
+
+.icon-app.hanh-dong {
+    background-position: 26px 0px;
+}
+
+.icon-app.kinh-dien {
+    background-position: -41px -21px;
+}
+
+.icon-app.kinh-doanh {
+    background-position: -62px -21px;
+}
+
+.icon-app.mo-phong {
+    background-position: -145px -21px;
+}
+
+.icon-app.nha-nong {
+    background-position: -83px -21px;
+}
+
+.icon-app.nhap-vai {
+    background-position: -104px -21px;
+}
+
+.icon-app.photo {
+    background-position: -186px -31px
+}
+
+.icon-app.quan-ly {
+    background-position: -212px -62px;
+}
+
+icon-app.sach {
+    background-position: 0px -41px;
+}
+
+.icon-app.suc-khoe {
+    background-position: -21px -41px;
+}
+
+.icon-app.the-thao {
+    background-position: -41px -41px;
+}
+
+.icon-app.tien-ich {
+    background-position: -62px -41px;
+}
+
+.icon-app.toc-do {
+    background-position: -104px -42px;
+}
+
+.icon-app.tri-tue {
+    background-position: -296px -41px;
+}
+
+.icon-app.game-tuong-tac {
+    background-position: -316.5px -42px;
+}
+
+.icon-app.game-viet-100 {
+    background-position: 0px -62px;
+}
+
+.icon-app.xay-dung {
+    background-position: -21px -63px;
+}
+
+icon-app.photo-video {
+    background-position: -296px -21px;
+}
+
+.icon-app.mmo-game-online {
+    background-position: 0px 0px
+}
+
+/* Css Trang Detail*/
+#detailContainer {
+    position: relative;
+    float: left;
+    height: auto;
+    /*min-height: 780px;*/
+    width: 100%;
+    background: #f4f4f4;
+    margin-bottom: 10px;
+}
+
+.breadcrumb {
+    padding: 8px 15px;
+    margin: 0 0 0 0;
+    list-style: none;
+    background-color: #f5f5f5;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    font-size: 13px;
+}
+
+
+.breadcrumb > li {
+    display: inline-block;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.breadcrumb > li > .divider {
+    background: url("images/right-arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #4D4D4D;
+    display: inline-block;
+    font-size: 12px;
+    height: 7px;
+    margin: 0 5px;
+    padding: 0;
+    width: 5px;
+}
+
+.breadcrumb a {
+	font-weight: bold;
+    color: #4d4d4d;
+    font-size: 14px;
+    text-shadow: none;
+}
+
+#detailApp {
+    width: 200px;
+    position: absolute;
+    left: 15px;
+    z-index: 999;
+}
+
+#detailApp .bigIcon {
+    width: 206px;
+    height: 206px;
+    overflow: hidden;
+    margin-top: 18px;
+    position: relative;
+    padding: 2px;
+}
+
+#detailApp .bigIcon img {
+    width: 200px;
+    height: 200px;
+}
+
+#detailApp .bigIcon .mask {
+    position: absolute;
+    background: url("images/mask_detail.png") no-repeat transparent;
+    width: 206px;
+    height: 208px;
+    display: block;
+    top: 2px;
+    left: 0;
+}
+
+#detailApp .downloadButton {
+    width: 211px;
+    height: 47px;
+    line-height: 47px;
+    margin-top: 20px;
+    margin-left: -5px;
+    background: url("images/bt_taive.png") 0px 0px no-repeat;
+    display: block;
+    text-indent: -9999em;
+}
+
+#detailApp .downloadButton:hover {
+    background-position: 0px -47px;
+}
+
+#detailApp .downloadButton:active {
+    background-position: 0px -94px;
+}
+
+#detailApp .appStar {
+    width: 200px;
+    padding-left: 58px;
+    margin-top: 10px;
+    line-height: 14px;
+}
+
+#detailApp .appStar .gold-star {
+    background: url(../images/icon/gold-star.png) no-repeat left center;
+    width: 13px;
+    height: 13px;
+    float: left;
+}
+
+#detailApp .appStar .gray-star {
+    background: url(../images/icon/gray-star.png) no-repeat left center;
+    width: 13px;
+    height: 13px;
+    float: left;
+}
+
+#detailApp .totalRate {
+    color: #6a6a6a;
+    font-size: 12px;
+}
+
+#detailApp .appStats {
+    overflow: hidden;
+    margin-top: 12px;
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+    -o-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+#detailApp .appStats > div {
+    float: left;
+    width: 98px;
+    height: 53px;
+    color: #4d4d4d;
+    font-size: 12px;
+    text-align: center;
+    line-height: 36px;
+}
+
+#detailApp .totalView {
+    border-right: 1px solid #d6d6d6;
+}
+
+#detailApp .totalDownload {
+}
+
+#detailApp i.iconview {
+    width: 68px;
+    height: 14px;
+    background: url("images/icon/total_view.png") no-repeat;
+    display: block;
+    margin-left: 13px;
+    margin-top: 8px;
+}
+
+#detailApp i.icondownload {
+    width: 62px;
+    height: 14px;
+    background: url("images/icon/cloud_download.png") no-repeat;
+    display: block;
+    margin-left: 17px;
+    margin-top: 8px;
+}
+
+#detailApp span.viewNum {
+    font-size: 16px;
+    font-weight: bold;
+    color: #161616;
+}
+
+#detailApp span.downloadNum {
+    font-size: 16px;
+    font-weight: bold;
+    color: #161616;
+}
+
+#detailApp .os {
+    float: left;
+    padding-left: 10px;
+    margin-top: 10px;
+    width: 154px;
+    height: auto;
+    border: 1px solid #d6d6d6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #4d4d4d;
+    line-height: 28px;
+}
+
+#detailApp i.apple {
+    background: url("../images/icon/apple.png") no-repeat;
+    width: 102px;
+    height: 18px;
+    display: block;
+    margin: 8px auto 17px;
+}
+
+#detailApp i.android {
+    background: url("../images/icon/android.png") no-repeat;
+    width: 145px;
+    height: 17px;
+    display: block;
+    margin: 10px auto 17px;
+}
+
+#appDesription {
+    display: block;
+    background: #f4f4f4;
+    float: left;
+    padding-top: 27px;
+    /*margin-left: 3px;*/
+    width: 100%;
+}
+
+#appDesription .nav-tabs a {
+    position: relative;
+}
+
+#appDesription .nav-tabs .active .mask {
+    width: 100%;
+    height: 2px;
+    display: inline-block;
+    background-color: #f4f4f4;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+#appDesription .appInfo {
+    margin-left: 16px;
+}
+
+#appDesription .appName {
+    font-size: 26px;
+    font-weight: 500;
+    position: relative;
+    text-transform: uppercase;
+}
+
+#appDesription .appName .mask {
+    background: url("../images/bg/Layer-70_02.png") repeat-x;
+    height: 16px;
+    width: 100%;
+    position: absolute;
+    bottom: -4px;
+}
+
+#appDesription .authorName {
+    font-size: 15px;
+    color: #5d5d5d;
+    line-height: 35px;
+    text-transform: none;
+}
+
+#appDesription .hr {
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 1px solid #fbfbfb;
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+}
+
+#appDesription .tab-content {
+    padding-left: 230px;
+    /*margin-top: 15px;*/
+}
+
+#appDesription h4 {
+    color: #161616;
+    margin: 30px 10px 30px 0;
+}
+
+#create-time{
+	 margin-right: 6px;
+	 float: right;
+}
+
+
+/*#img-app-detail .mask {
+    background: url("images/icon/mask_list.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 87px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 86px;
+}*/
