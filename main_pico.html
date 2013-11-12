@@ -5,43 +5,43 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Picostore</title>
-	
-	<link rel="stylesheet"  href="css/jquery.mobile-1.3.2.css">
-	<link rel="stylesheet"  href="css/main.css">
-	<link rel="stylesheet"  href="css/styles.css">
-	<!-- <link rel="stylesheet"  href="css/grid-listview.css">-->
-	
-	<link rel="shortcut icon" href="favicon.ico">
-	<script src="js/jquery.js"></script>	
-	
-	<script type="text/javascript">
-		  var showDateTime;
-		  showDateTime = function(unix_timestamp){
-				var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-				var date = new Date(unix_timestamp*1000); 
+    
+    <link rel="stylesheet"  href="css/jquery.mobile-1.3.2.css">
+    <link rel="stylesheet"  href="css/main.css">
+    <link rel="stylesheet"  href="css/styles.css">
+    <!-- <link rel="stylesheet"  href="css/grid-listview.css">-->
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="js/jquery.js"></script>    
+    
+    <script type="text/javascript">
+          var showDateTime;
+          showDateTime = function(unix_timestamp){
+                var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                var date = new Date(unix_timestamp*1000); 
 
-				var year = date.getFullYear();
-			    //var month = months[date.getMonth()];
-			    var month = date.getMonth();
-			    var date = date.getDate();
-			   
-			    // will display time in 10:30:23 format
-				//var formattedTime = hours + ':' + minutes + ':' + seconds;
-				
-			    //will display time in 12/7/2013 format
-			    var formattedTime = date + '/' + month + '/' + year;
-				return formattedTime;
-			}
-	      var SERVER = "http://vietalo.com/"; //before anything else
-	      var STATIC_CDN ="s.vietalo.com/";
-	      $(document).on("mobileinit", function () {
-	    	  $.mobile.fixedtoolbar.prototype.options.tapToggle = false;
-	    	  $.mobile.fixedtoolbar.prototype.options.hideDuringFocus ="";
-	    	});
-	</script>		
-	
+                var year = date.getFullYear();
+                //var month = months[date.getMonth()];
+                var month = date.getMonth();
+                var date = date.getDate();
+               
+                // will display time in 10:30:23 format
+                //var formattedTime = hours + ':' + minutes + ':' + seconds;
+                
+                //will display time in 12/7/2013 format
+                var formattedTime = date + '/' + month + '/' + year;
+                return formattedTime;
+            }
+          var SERVER = "http://vietalo.com/"; //before anything else
+          var STATIC_CDN ="s.vietalo.com/";
+          $(document).on("mobileinit", function () {
+              $.mobile.fixedtoolbar.prototype.options.tapToggle = false;
+              $.mobile.fixedtoolbar.prototype.options.hideDuringFocus ="";
+            });
+    </script>       
+    
      <script type="text/javascript" src="js/mustache.js"></script>
-     <script src="js/jquery.mobile-1.3.2.min.js"></script>	        
+     <script src="js/jquery.mobile-1.3.2.min.js"></script>          
     
      <script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
      <script  type="text/javascript" src="js/Pico.js" ></script>
@@ -52,185 +52,185 @@
 
 <!-- BODY -->
 <body>
- 	<a id="smartphone_click" href="#smartphone" data-rel="dialog"></a>
- 	<a id="downloadApp" href="#downloadApp" data-rel="dialog"></a>
- 	 
+    <a id="smartphone_click" href="#smartphone" data-rel="dialog"></a>
+    <a id="downloadApp" href="#downloadApp" data-rel="dialog"></a>
+     
 <!-- PAGE MOBILE APP -->
-	<div data-role="page" id="demo-page" data-theme="d"  class="my-page" >
-		<!-- header -->
-	    <div data-role="header" data-theme="d"  data-position="fixed">
-	    	<div id='header'> 
-			    <div id="pageLogo" class="pull-left">
-			        <a style="cursor:pointer" onclick="app_load('',true,1,0)">
-			            <h1 class="logo">PicoStore</h1>
-			            <span class="soha"></span>
-			        </a>
-			    </div>
-	    	</div>
-	       	<a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" data-theme="b" >Menu</a>
-	       	
-	       	<a id="mysearchbox" href="#" data-role="button" data-icon="search" data-iconpos="notext" data-theme="b" data-iconshadow="false" data-inline="true">Search</a>
-	       	<!-- navbar -->
-	    	<div data-role="navbar" data-iconpos="left">        
-		    	<ul>
-		            <li id="home"><a>Home</a></li>
-		            <li id="hot"><a>Hot</a></li>
-		            <li id="new"><a>New</a></li>
-		            <li id="topdown"><a href="#">Top Downs</a></li>
-		        </ul>
-	       </div>
-	       <!-- /navbar -->   	
-	       
-	    </div>
-	    <!-- /header -->
-	    
-	    <!-- content -->
-	    <div data-role="content" id="content">    	
-			<div id='Loading'> </div>
-				<!-- search app -->
-				<div id='search-basic' style="display: none; margin-bottom: 2px;">
-					<input type="search" name="search" id="search-app" value="" />
-				</div>
-				<!-- /search app -->
-				
-				<!-- app list -->
-		     	<div id="app-list" title="">
-			      <ul data-role="listview" data-inset="true" 
-			     	 class="list-apps" id="app-hot" style="margin-top: 5px;">
-						
-					 </ul>
-			    </div>
-			    <!-- /app list -->
-			    
-			    <!-- app detail -->
-			    <div id="app-detail" style="margin-top: -15px;">
-				
-		    	</div>
-	     		<!-- /app detail -->  
-	    </div><!-- /content -->
-	
-	    <!-- panel -->
-	    <div data-role="panel" id="left-panel" data-theme="a"
-	     	 data-position-fixed="true">
-	        <ul data-role="listview" data-theme="a">
-           		<li data-icon="delete"><a href="#" data-rel="close">Picostore</a></li>
-	        </ul>
-	        
-	         <h3>Danh mục</h3>   
-	             
-	         <ul data-role="listview" 
-	         	 id="category-List" data-theme="a" data-content-theme="a" >   
-		          <div id="category_temp" style='display:none;' >
-			          <li onclick="app_load('',true,1,{{category_id}})" data-url="{{category_id}}" >
-				         <a> 
-				         <div class="icon-app {{category_code}}" 
-				         > 
-				         <span style='margin-left:25px;'>{{category_name}}</span>
-				         </div>
-				          </a>
-			          </li>
-		          </div>                                      
-	         </ul>   
-	    </div>
-	    <!-- /panel -->  
-	     
-	    <div data-role="footer">
-	        <div data-role="navbar">
-	            <ul>
-	                <li><a onclick="app_load('',true,1,0)" data-icon="grid">Trang Chủ</a></li>
-	                <li><a onclick="app_load('',true,2,0)" data-icon="star" class="ui-btn-active">Hot</a></li>
-	                <li><a id="searchfooter" data-icon="search">Search</a></li>
-	            </ul>
-	        </div><!-- /navbar -->
+    <div data-role="page" id="demo-page" data-theme="d"  class="my-page" >
+        <!-- header -->
+        <div data-role="header" data-theme="d"  data-position="fixed">
+            <div id='header'> 
+                <div id="pageLogo" class="pull-left">
+                    <a style="cursor:pointer" onclick="app_load('',true,1,0)">
+                        <h1 class="logo">PicoStore</h1>
+                        <span class="soha"></span>
+                    </a>
+                </div>
+            </div>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" data-theme="b" >Menu</a>
+            
+            <a id="mysearchbox" href="#" data-role="button" data-icon="search" data-iconpos="notext" data-theme="b" data-iconshadow="false" data-inline="true">Search</a>
+            <!-- navbar -->
+            <div data-role="navbar" data-iconpos="left">        
+                <ul>
+                    <li id="home"><a>Home</a></li>
+                    <li id="hot"><a>Hot</a></li>
+                    <li id="new"><a>New</a></li>
+                    <li id="topdown"><a href="#">Top Downs</a></li>
+                </ul>
+           </div>
+           <!-- /navbar -->     
+           
+        </div>
+        <!-- /header -->
+        
+        <!-- content -->
+        <div data-role="content" id="content">      
+            <div id='Loading'> </div>
+                <!-- search app -->
+                <div id='search-basic' style="display: none; margin-bottom: 2px;">
+                    <input type="search" name="search" id="search-app" value="" />
+                </div>
+                <!-- /search app -->
+                
+                <!-- app list -->
+                <div id="app-list" title="">
+                  <ul data-role="listview" data-inset="true" 
+                     class="list-apps" id="app-hot" style="margin-top: 5px;">
+                        
+                     </ul>
+                </div>
+                <!-- /app list -->
+                
+                <!-- app detail -->
+                <div id="app-detail" style="margin-top: -15px;">
+                
+                </div>
+                <!-- /app detail -->  
+        </div><!-- /content -->
+    
+        <!-- panel -->
+        <div data-role="panel" id="left-panel" data-theme="a"
+             data-position-fixed="true">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Picostore</a></li>
+                <li data-icon="gear"><a href="#" >Đổi điểm thưởng</a></li>
+            </ul>
+            
+             <h3>Danh mục</h3>   
+                 
+             <ul data-role="listview" 
+                 id="category-List" data-theme="a" data-content-theme="a" >   
+                  <div id="category_temp" style='display:none;' >
+                      <li onclick="app_load('',true,1,{{category_id}})" data-url="{{category_id}}" >
+                         <a> 
+                         <div class="icon-app {{category_code}}" 
+                         > 
+                         <span style='margin-left:25px;'>{{category_name}}</span>
+                         </div>
+                          </a>
+                      </li>
+                  </div>                                      
+             </ul>   
+        </div>
+        <!-- /panel -->  
+         
+        <div data-role="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a onclick="app_load('',true,1,0)" data-icon="grid">Trang Chủ</a></li>
+                    <li><a onclick="app_load('',true,2,0)" data-icon="star" class="ui-btn-active">Hot</a></li>
+                    <li><a id="searchfooter" data-icon="search">Search</a></li>
+                </ul>
+            </div><!-- /navbar -->
         </div><!-- /footer -->
         
-	</div><!-- /page -->
+    </div><!-- /page -->
 <!-- /PAGE MOBILE APP -->
-	
+    
 <!-- PAGE SMART PHONE-->
-	<!-- Start of second page for smartphone -->
-	<div data-role="page" id="smartphone">
-	    <div data-role="header">
-	        <h1>
-	            PicoStore
-	        </h1>
-	    </div><!-- /header -->
-	    <div data-role="content">
-	        <p>
-	           PicoApp đã có phiên bản mới cho điện thoại của bạn, download ngay để trải nhiệm
-	        </p>
-	        
-	        <div data-role="controlgroup">
-                <a style="display: none;" data-icon="check" data-role="button" data-theme="b" id="iosCheck" href="/download/PicoStore.apk">YES</a>
-                <a style="display: none;" data-icon="check" data-role="button" data-theme="b"  "id="androidCheck" href="/download/PicoStore.apk">YES</a>
-                <a style="display: none;" data-icon="check" data-role="button" data-theme="b"  id="blackCheck" href="/download/PicoStore.apk">YES</a>
-                <a style="display: none;" data-icon="check" data-role="button" data-theme="b"  id="windowsCheck" href="/download/PicoStore.apk">YES</a>
-                <a style="display: none;" data-icon="check" data-role="button" data-theme="b"  id="javaCheck" href="/download/PicoStore.apk">YES</a>
-                <a style="display: none;" data-icon="check" data-role="button" data-theme="b"  id="computerCheck" href="/download/PicoStore.apk">YES</a>
-                <a style="display: none;" data-icon="check" data-role="button" data-theme="b"  id="mobileCheck" href="/download/PicoStore.apk">YES</a> 
-	        
-	            <a href="#demo-page" data-icon="back" data-role="button" data-theme="e">No</a>
-	        </div>
-	        
-	    </div><!-- /content -->
-	    <div data-role="footer">
-	        <h4>
-	            Copyright (C) 2013 - Picostore.vn
-	        </h4>
-	    </div><!-- /footer -->
-	</div><!-- /page -->
+    <!-- Start of second page for smartphone -->
+    <div data-role="page" id="smartphone">
+        <div data-role="header">
+            <h1>
+                PicoStore
+            </h1>
+        </div><!-- /header -->
+        <div data-role="content">
+            <p>
+               PicoApp đã có phiên bản mới cho điện thoại của bạn, download ngay để trải nhiệm
+            </p>
+            <div data-role="navbar" data-iconpos="left">        
+                <ul>
+                 <li><a  style="display: none;" data-icon="check" data-theme="b" id="iosCheck" href="/download/PicoStore.apk">YES</a></li>
+                <li><a style="display: none;" data-icon="check"  data-theme="b"  "id="androidCheck" href="/download/PicoStore.apk">YES</a></li>
+                <li><a style="display: none;" data-icon="check"  data-theme="b"  id="blackCheck" href="/download/PicoStore.apk">YES</a></li>
+                <li><a style="display: none;" data-icon="check"  data-theme="b"  id="windowsCheck" href="/download/PicoStore.apk">YES</a></li>
+                <li><a style="display: none;" data-icon="check"  data-theme="b"  id="javaCheck" href="/download/PicoStore.apk">YES</a></li>
+                <li><a style="display: none;" data-icon="check"  data-theme="b"  id="computerCheck" href="/download/PicoStore.apk">YES</a></li>
+                <li><a style="display: none;" data-icon="check"  data-theme="b"  id="mobileCheck" href="/download/PicoStore.apk">YES</a></li>
+                <li><a href="#demo-page" data-icon="back"  data-theme="e">No</a></li>
+                </ul>
+           </div>
+           
+        </div><!-- /content -->
+        <div data-role="footer">
+            <h4>
+                Copyright (C) 2013 - Picostore.vn
+            </h4>
+        </div><!-- /footer -->
+    </div><!-- /page -->
 <!-- /PAGE SMART PHONE-->
-	
+    
 <!-- PAGE DOWNLOAD-->
-	<!-- Start of third page download -->
-	<div data-role="page" id="downloadApp">
-	    <div data-role="header">
-	        <h1>
-	            PicoStore
-	        </h1>
-	    </div><!-- /header -->
-	    <div data-role="content">
-	        <p>
-	           Download APP
-	        </p>
-	       
-        	<div id="source_down">
-        	   	
-        	</div>
-	        
-	    </div><!-- /content -->
-	    <div data-role="footer">
-	        <h4>
-	            Copyright (C) 2013 - Picostore.vn
-	        </h4>
-	    </div><!-- /footer -->
-	</div><!-- /page -->
+    <!-- Start of third page download -->
+    <div data-role="page" id="downloadApp">
+        <div data-role="header">
+            <h1>
+                PicoStore
+            </h1>
+        </div><!-- /header -->
+        <div data-role="content">
+            <p>
+               Tải ứng dụng ngay cho điện thoại của bạn
+            </p>
+           
+            <div id="source_down">
+                
+            </div>
+            
+        </div><!-- /content -->
+        <div data-role="footer">
+            <h4>
+                Copyright (C) 2013 - Picostore.vn
+            </h4>
+        </div><!-- /footer -->
+    </div><!-- /page -->
 <!-- /PAGE DOWNLOAD-->
-	
+    
 <!-- SOURCE DOWN TEMP -->
 <div id="source_down_temp" style='display:none;'>
-	 <div data-role="controlgroup"> 
-      	<a style="display: none;" data-icon="check" data-role="button" data-theme="b" id="ios" href="{{app.source_ios}}">IOS</a>
-      	<a style="display: none;" data-icon="check" data-role="button" data-theme="b" id="android" href="{{app.source_android}}">Android</a>
-      	<a style="display: none;" data-icon="check" data-role="button" data-theme="b" id="black" href="{{app.source_blackberry}}">Blackberry</a>
-      	<a style="display: none;" data-icon="check" data-role="button" data-theme="b" id="windows" href="{{app.source_windows_phone}}">Windows phone</a>
-      	<a style="display: none;" data-icon="check" data-role="button" data-theme="b" id="java" href="{{app.source_java}}">Java</a>
-      	<a style="display: none;" data-icon="check" data-role="button" data-theme="b" id="computer" href="{{app.source_link}}">Computer</a>
-      	<a style="display: none;" data-icon="check" data-role="button" data-theme="b" id="mobile" href="{{app.source_link}}">Mobile</a>	  
-      	<a data-icon="back" data-role="button" data-theme="e" href="#demo-page">Quay trở lại Picostore</a>
-     </div>
+    <div data-role="navbar" data-iconpos="left">        
+        <a id="ios" style="display: none;" href="{{app.source_ios}}" data-role="button" data-icon="check" data-theme="b">Download</a>
+        <a id="android" style="display: none;"   href="{{app.source_android}}" data-role="button"  data-icon="check"data-theme="b">Download</a>
+        <a id="black" style="display: none;"  href="{{app.source_blackberry}}" data-role="button"  data-icon="check"data-theme="b">Download</a>
+        <a id="windows" style="display: none;"  href="{{app.source_windows_phone}}" data-role="button"  data-icon="check"data-theme="b">Download</a>
+        <a id="java" style="display: none;"   href="{{app.source_java}}" data-role="button"  data-icon="check"data-theme="b">Download</a>
+        <a id="mobile" style="display: none;"  href="{{app.source_link}}" data-role="button"  data-icon="check"data-theme="b">Download</a>
+        <a href="#demo-page" style="display: block;" data-role="button"   data-icon="cancel"data-theme="b">Cancel</a>
+    </div>
 </div>      
 <!-- /SOURCE DOWN TEMP  -->
-     	
-<!-- APP_LIST_TEMP -->     	
+        
+<!-- APP_LIST_TEMP -->      
 <div id="app_temp" style='display:none;'>
-	<li>
-		 <a id="img-app-detail" onclick="app_detail_load('',true,{{app_id}})">
+    <li>
+         <a id="img-app-detail" onclick="app_detail_load('',true,{{app_id}})">
                <img width="80px" border="0 none" 
-				    height= "auto"
-				    max-width= "100%"
-				    vertical-align="middle" src="{{image_small}}">
-			   <span class="mask"></span>
+                    height= "auto"
+                    max-width= "100%"
+                    vertical-align="middle" src="{{image_small}}">
+               <span class="mask"></span>
                <h2>{{app_name}}</h2>
                <p>{{category_name}}</p>
                <p class="ui-li-aside">iOS</p>
@@ -242,83 +242,83 @@
  <!-- APP TEMP DETAIL -->
  <div id="app_detail_temp" style="display:none;">
     <ul class="breadcrumbs breadcrumb">
-		<li><a style="cursor:pointer" onclick="app_load('',true,1,0)">Trang Chủ</a>
-			<span class="divider"></span>
-		</li>
-		<li><a style="cursor:pointer" onclick="app_load('',true,1,{{app.category_id}})">
-		    {{app.category_name}}</a>
-			<span class="divider"></span>
-		</li>
-		<li class="active">{{app.app_name}}</li>
-	</ul>
-							
-	<div id="detailContainer" style="">
-		<div class="app-container">
-			<div style="position: relative; width: 100%;" id="detailApp">
-	
-    			<div style="margin-left: 55px;" class="bigIcon">
+        <li><a style="cursor:pointer" onclick="app_load('',true,1,0)">Trang Chủ</a>
+            <span class="divider"></span>
+        </li>
+        <li><a style="cursor:pointer" onclick="app_load('',true,1,{{app.category_id}})">
+            {{app.category_name}}</a>
+            <span class="divider"></span>
+        </li>
+        <li class="active">{{app.app_name}}</li>
+    </ul>
+                            
+    <div id="detailContainer" style="">
+        <div class="app-container">
+            <div style="position: relative; width: 100%;" id="detailApp">
+    
+                <div style="margin-left: 55px;" class="bigIcon">
                     <img src="{{app.image_small}}">
                     <span class="mask"></span>
-        		</div>
-        		
-        		<div style="cursor: pointer;" >
+                </div>
+                
+                <div style="cursor: pointer;" >
                     <a class="downloadButton" title="Tải ứng dụng" 
-                    		 fixedwidth="760" style="margin-left: 55px;"
-                    		 onclick="downloadApp()">
+                             fixedwidth="760" style="margin-left: 55px;"
+                             onclick="downloadApp()">
                         Tải về
                     </a>
-        		</div>
+                </div>
     
-	            <div class="appStats">
-	                <div style="width: 47%;" class="totalView">
-	                    <i class="iconview"></i> 
-	                    	<span class="viewNum">{{app.count_view}}</span>
-	                </div>
-	                <div style="width: 47%;" class="totalDownload">
-	                    <i class="icondownload"></i> 
-	                    	<span class="downloadNum">{{app.count_down}}</span>
-	                </div>
-	    		</div>
+                <div class="appStats">
+                    <div style="width: 47%;" class="totalView">
+                        <i class="iconview"></i> 
+                            <span class="viewNum">{{app.count_view}}</span>
+                    </div>
+                    <div style="width: 47%;" class="totalDownload">
+                        <i class="icondownload"></i> 
+                            <span class="downloadNum">{{app.count_down}}</span>
+                    </div>
+                </div>
             
            
-           		<div style="margin-left: 55px;" class="os" style="clear: both;">
-                   	<b>Cập nhật: </b>
-                   	
-                   	<div id="create-time">
-                   	
-                   	</div>
-                   	<script>
-                   		var time = "";
-                   		time = showDateTime('{{app.date_time}}');
-                   		$( "#create-time" ).html(time);
-                   	</script>
+                <div style="margin-left: 55px;" class="os" style="clear: both;">
+                    <b>Cập nhật: </b>
+                    
+                    <div id="create-time">
+                    
+                    </div>
+                    <script>
+                        var time = "";
+                        time = showDateTime('{{app.date_time}}');
+                        $( "#create-time" ).html(time);
+                    </script>
                    </div>
-			</div>
-			
-			<div id="appDesription">
-				<div class="appInfo clearfix">
-	                <div class="appName">
-	                    {{app.app_name}}                     
-	                    <span class="authorName">bởi <b>picoStore</b></span>
-	                </div>
-	             </div>
-			</div>
-			
-			<div class="tab-content clearfix" style="padding-left: 0px; clear: both;">
-				<div class="tab-pane active" id="description">
+            </div>
+            
+            <div id="appDesription">
+                <div class="appInfo clearfix">
+                    <div class="appName">
+                        {{app.app_name}}                     
+                        <span class="authorName">bởi <b>picoStore</b></span>
+                    </div>
+                 </div>
+            </div>
+            
+            <div class="tab-content clearfix" style="padding-left: 0px; clear: both;">
+                <div class="tab-pane active" id="description">
                     <div class="appDescription">
                         <h4 style="font-weight: bold;">Giới thiệu ứng dụng</h4>
                         <div id="app-guide">
-                       			{{{app.guide}}}
-						</div>
+                                {{{app.guide}}}
+                        </div>
                 
                         <h4 style="font-weight: bold;">Cập nhật mới:</h4>
                             {{{app.description}}}
                     </div>
                 </div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </div>
    <!--  END APP TEMP DETAIL -->
 </body>
@@ -328,192 +328,183 @@
  //var next_page='http://picostore.local/api.php';
  var next_page='http://vietalo.com/api.php';
  /*load app detail*/
-	function app_detail_load(url_page,firsttime,app_id) {
-	    $.ajax({
-	        type: "POST",
-	        url: next_page,
-	        data: {
-	        		action:'app_detail',
-	        		_cl_rest:1,
-	        		app_id:app_id
-	        	  },
-	        dataType:'jsonp',
-	        //contentType: 'application/json; charset=utf-8',
-	        statusCode: {
-	            404: function() {
-	                $("#content").html('Không kết nối được đến.');
-	            },
-	            500: function() {
-	                $("#content").html('Có lỗi từ phía server.');
-	            }
-	        },
-	       	error: function (jqXHR, textStatus, errorThrown) {
+    function app_detail_load(url_page,firsttime,app_id) {
+        $.ajax({
+            type: "POST",
+            url: next_page,
+            data: {
+                    action:'app_detail',
+                    _cl_rest:1,
+                    app_id:app_id
+                  },
+            dataType:'jsonp',
+            //contentType: 'application/json; charset=utf-8',
+            statusCode: {
+                404: function() {
+                    $("#content").html('Không kết nối được đến.');
+                },
+                500: function() {
+                    $("#content").html('Có lỗi từ phía server.');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus + ': ' + errorThrown);
                 alert('Error: '+e);
-	        },
-	        success: function(data) {
-	        	var html_content="";
-	        	var template="";
-	        	
-	        	var template=$("#app_detail_temp").html();      		
-        		var html = Mustache.render(template, data.result);        		
-        		
-        		html_content=html_content + html;
-		
-        		$('#app-hot').html('');
-        		$('#app-list').attr("title","");
-	        	$("#app-detail").html(html_content);	
-	        	
-	        	template=$("#source_down_temp").html();
-	        	html = Mustache.render(template, data.result);
-	        	
-	        	$("#source_down").html(html);
-	        	//console.log(html_content);
-	           // $(html_content).insertBefore("#hot_app");
-	       }
-	   });
-	 }
+            },
+            success: function(data) {
+                var html_content="";
+                var template="";
+                
+                var template=$("#app_detail_temp").html();              
+                var html = Mustache.render(template, data.result);              
+                
+                html_content=html_content + html;
+        
+                $('#app-hot').html('');
+                $('#app-list').attr("title","");
+                $("#app-detail").html(html_content);    
+                
+                template=$("#source_down_temp").html();
+                html = Mustache.render(template, data.result);
+                
+                $("#source_down").html(html);
+                
+                $("#source_down").trigger('create');
+                $("#down_list").listview().listview('refresh');
+           }
+       });
+     }
  
-	function app_load(url_page, firsttime,type_cate,cate_id) {
-		// console.log('adding more');
-	   $.mobile.showPageLoadingMsg("a", "Loading app for you ...");
-			 
-	   $( "#left-panel" ).panel( "close" );
-	    //$("#content").html("<div id='Loading'> <img alt='' src='img/ajax-loader.gif'>  </div>");
-	    $.ajax({
-	        type: "POST",
-	        url: next_page,
-	        data: {
-	        		action:'category',
-	        		type:type_cate,
-	        		_cl_rest:1,
-	        		category_id: cate_id
-	        	  },
-	        dataType:'jsonp',
-	        //contentType: 'application/json; charset=utf-8',
-	        statusCode: {
-	            404: function() {
-	                $("#content").html('Không kết nối được đến.');
-	            },
-	            500: function() {
-	                $("#content").html('Có lỗi từ phía server.');
-	            }
-	        },
-	       	error: function (jqXHR, textStatus, errorThrown) {
-	                console.log(textStatus + ': ' + errorThrown);
-	                alert('Error: '+e);
-	             
-	        },
-	        success: function(data) {
-	        	$.mobile.loading( 'hide');
-	        	var html_content="";
-	        	var template="";
-	        	var coms="";
-	        	
-	        	jQuery.each(data.result, function(index,val) {	        	
-	        		var template=$("#app_temp").html();      		
-	        		var html = Mustache.render(template, val);        		
-	        		html_content=html_content + html;
-	        	});   	
-	        	
-	        	$('#app-detail').html('');
-	        	
-	        	template = $("#app-list-temp").html();
-	        	
-	        	//$("#app-list").html(template);
-	        	$("#app-hot").html(html_content);
-	        	$("#app-hot").listview('refresh');
-	        	
-	        	if(cate_id != '' && cate_id != 0){
-	        		$('#app-list').attr("title",cate_id);
-	        	}
-	           // $(html_content).insertBefore("#hot_app");
-	       }
-	   });
-	 }
-	
-	function showDateTime(unix_timestamp){
-		var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-		var date = new Date(unix_timestamp*1000); 
+    function app_load(url_page, firsttime,type_cate,cate_id) {
+       $.mobile.showPageLoadingMsg("a", "Loading app for you ...");
+             
+       $( "#left-panel" ).panel( "close" );
+        //$("#content").html("<div id='Loading'> <img alt='' src='img/ajax-loader.gif'>  </div>");
+        $.ajax({
+            type: "POST",
+            url: next_page,
+            data: {
+                    action:'category',
+                    type:type_cate,
+                    _cl_rest:1,
+                    category_id: cate_id
+                  },
+            dataType:'jsonp',
+            //contentType: 'application/json; charset=utf-8',
+            statusCode: {
+                404: function() {
+                    $("#content").html('Không kết nối được đến.');
+                },
+                500: function() {
+                    $("#content").html('Có lỗi từ phía server.');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus + ': ' + errorThrown);
+                    alert('Error: '+e);
+                 
+            },
+            success: function(data) {
+                $.mobile.loading( 'hide');
+                var html_content="";
+                var template="";
+                var coms="";
+                
+                jQuery.each(data.result, function(index,val) {              
+                    var template=$("#app_temp").html();             
+                    var html = Mustache.render(template, val);              
+                    html_content=html_content + html;
+                });     
+                
+                $('#app-detail').html('');
+                
+                template = $("#app-list-temp").html();
+                
+                //$("#app-list").html(template);
+                $("#app-hot").html(html_content);
+                $("#app-hot").listview('refresh');
+                
+                if(cate_id != '' && cate_id != 0 && typeof cate_id !== "undefined"){
+                    $('#app-list').attr("title",cate_id);
+                }else{
+                	$('#app-list').attr("title","");
+                }
+           }
+       });
+     }
+    
+    function showDateTime(unix_timestamp){
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var date = new Date(unix_timestamp*1000); 
 
-		var year = date.getFullYear();
-	    //var month = months[date.getMonth()];
-	    var month = date.getMonth();
-	    var date = date.getDate();
-	   
-	    // will display time in 10:30:23 format
-		//var formattedTime = hours + ':' + minutes + ':' + seconds;
-		
-	    //will display time in 12/7/2013 format
-	    var formattedTime = date + '/' + month + '/' + year;
-		return formattedTime;
-	}
-	
-	var isMobile = {
-		    Android: function() {
-		        return navigator.userAgent.match(/Android/i);
-		    },
-		    BlackBerry: function() {
-		        return navigator.userAgent.match(/BlackBerry/i);
-		    },
-		    iOS: function() {
-		        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-		    },
-		    Opera: function() {
-		        return navigator.userAgent.match(/Opera Mini/i);
-		    },
-		    Windows: function() {
-		        return navigator.userAgent.match(/IEMobile/i);
-		    },
-		    any: function() {
-		        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-		    }
-		};
-	
-	function downloadApp(){
-		var device = ['mobile','ios','black','windows','computer','java'];
-		//Check device
-		
-		for(var i = 0;i < device.lenght;i ++){
-			document.getElementById(device[i]).style.display = "none";
-		}
-		
-		if(isMobile.any()){
-			document.getElementById('mobile').style.display = "block";
-			//alert('Mobile');
-		}
-		
-		if(isMobile.iOS()) {
-			document.getElementById('ios').style.display = "block";
-			//alert('iOS');
-		}
-		
-		if(isMobile.Android()){
-			document.getElementById('android').style.display = "block";
-			//alert('Android');
-		}
-		
-		if(isMobile.BlackBerry()){
-			document.getElementById('black').style.display = "block";
-			//alert('BlackBerry');
-		}
-		
-		/*if(isMobile.Opera()){
-			alert('Opera');
-		}*/
-		
-		if(isMobile.Windows()){
-			document.getElementById('windows').style.display = "block";
-			//alert('Windows');
-		}
-		
-		if(!isMobile.Windows()){
-			document.getElementById('computer').style.display = "block";
-			//alert('computer');
-		}
-		
-		$("#downloadApp").trigger("click");
-		
-		//Execute download
-	}
+        var year = date.getFullYear();
+        //var month = months[date.getMonth()];
+        var month = date.getMonth();
+        var date = date.getDate();
+       
+        // will display time in 10:30:23 format
+        //var formattedTime = hours + ':' + minutes + ':' + seconds;
+        
+        //will display time in 12/7/2013 format
+        var formattedTime = date + '/' + month + '/' + year;
+        return formattedTime;
+    }
+    
+    var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+        };
+    
+    function downloadApp(){
+        var device = ['mobile','ios','black','windows','java'];
+        //Check device
+        var count = 0;
+        for(var i = 0;i < device.lenght;i ++){
+            document.getElementById(device[i]).style.display = "none";
+        }
+        
+        if(isMobile.iOS()) {
+            document.getElementById('ios').style.display = "block";
+            count ++;
+        }
+        
+        if(isMobile.Android()){
+            document.getElementById('android').style.display = "block";
+            count ++;
+        }
+        
+        if(isMobile.BlackBerry()){
+            document.getElementById('black').style.display = "block";
+            count ++;
+        }
+        
+        if(isMobile.Windows()){
+            count ++;
+            document.getElementById('windows').style.display = "block";
+        }
+        
+        if(isMobile.any() && count == 0){
+            document.getElementById('mobile').style.display = "block";
+        }
+        
+        $("#downloadApp").trigger("click");
+       // $("#down_list").listview('refresh');
+        //Execute download
+    }
  </script>

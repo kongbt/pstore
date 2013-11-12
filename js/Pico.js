@@ -27,7 +27,6 @@ function onDeviceReady(){
 
 $(document).ready(function() {
 	function app_load(url_page, firsttime,type_cate,cate_id) {
-	
 	  $.mobile.showPageLoadingMsg("a", "Loading app for you ...");
 			 
 	   $( "#left-panel" ).panel( "close" );
@@ -72,8 +71,10 @@ $(document).ready(function() {
 	        	$("#app-hot").html(html_content);
 	        	$("#app-hot").listview('refresh');
 	        	
-	        	if(cate_id != '' && cate_id != 0){
+	        	if(cate_id != '' && cate_id != 0 && typeof cate_id !== "undefined"){
 	        		$('#app-list').attr("title",cate_id);
+	        	}else{
+	        		$('#app-list').attr("title","");
 	        	}
 	           // $(html_content).insertBefore("#hot_app");
 	       }
@@ -122,7 +123,7 @@ $(document).ready(function() {
 	        	$("#app-hot").html(html_content);
 	        	$("#app-hot").listview('refresh');
 	        	
-	        	if(cate_id != '' && cate_id != 0){
+	        	if(cate_id != '' && cate_id != 0 && typeof cate_id !== "undefined"){
 	        		$('#app-list').attr("title",cate_id);
 	        	}
 	       }
@@ -205,12 +206,12 @@ $(document).ready(function() {
         		$('#app-hot').html('');
         		$('#app-list').attr("title","");
 	        	$("#app_detail").html(html_content);	        	
-	        	console.log(html_content);
+	        	//console.log(html_content);
 	       }
 	   });
 	 }
 	
-	app_load(next_page, true, 2);
+	app_load(next_page, true, 1);
 	category_load(root_page);
 	
 	$("#hot").on('click',function(){
@@ -241,69 +242,6 @@ $(document).ready(function() {
 	$("#searchfooter").on('click', function(){
 		$("#search-basic").toggle("slow");
 	});
-	
-	var isMobile = {
-		    Android: function() {
-		        return navigator.userAgent.match(/Android/i);
-		    },
-		    BlackBerry: function() {
-		        return navigator.userAgent.match(/BlackBerry/i);
-		    },
-		    iOS: function() {
-		        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-		    },
-		    Opera: function() {
-		        return navigator.userAgent.match(/Opera Mini/i);
-		    },
-		    Windows: function() {
-		        return navigator.userAgent.match(/IEMobile/i);
-		    },
-		    any: function() {
-		        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-		    }
-		};
-	
-	function checkDownloadApp(){
-		var device = ['mobileCheck','iosCheck','blackCheck','windowsCheck','computerCheck','javaCheck'];
-		//Check device
-		
-		for(var i = 0;i < device.lenght;i ++){
-			document.getElementById(device[i]).style.display = "none";
-		}
-		
-		if(isMobile.iOS()) {
-			document.getElementById('iosCheck').style.display = "block";
-			//alert('iOS');
-		}
-		
-		if(isMobile.Android()){
-			document.getElementById('androidCheck').style.display = "block";
-			//alert('Android');
-		}
-		
-		if(isMobile.BlackBerry()){
-			document.getElementById('blackCheck').style.display = "block";
-			//alert('BlackBerry');
-		}
-		
-		/*if(isMobile.Opera()){
-			alert('Opera');
-		}*/
-		
-		if(isMobile.Windows()){
-			document.getElementById('windowsCheck').style.display = "block";
-			//alert('Windows');
-		}
-				
-		//Execute download
-		if(!isMobile.any()){
-			document.getElementById('mobileCheck').style.display = "block";
-			$("#smartphone_click").trigger("click");
-			window.location.href= picomobile;
-		}
-	}
-
-	checkDownloadApp();
 	
 	$('body').on('click', 'li', function() {
 	});
